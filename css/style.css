@@ -1,0 +1,64 @@
+:root{
+    --bgcolor_1 : rgb(41,40,86);
+    --bgcolor_2 : rgb(114,125,156);
+    --bgcolor_3 : rgb(100,105,165);
+    --bgLi_1 : rgb(234,232,240);
+    --bgLi_2 : rgb(158,150,183);
+    --bgLi_3 : rgb(93,79,132);
+    --bgLi_4 : rgb(63,48,110);
+    --txtLi : rgb(210,210,210);
+    --txtLi_select_1 : rgb(250,215,21);
+    --txtLi_select_2 : rgb(250,163,0);
+    --black : rgb(0,0,0);
+}
+
+@font-face {
+    font-family: vremena;
+    src: url("./fonts/VremenaGrotesk.otf");
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(45deg, var(--bgcolor_1), var(--bgcolor_2), var(--bgcolor_3));
+    color: var(--txtLi);
+    font-family: vremena;
+    text-shadow: 2px 0px black, -2px 0px black, 0px 2px black, 0px -2px black,
+             1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+}
+
+main{
+    margin: auto;
+    max-width: 1200px;
+}
+
+ul{
+    list-style-type: none;
+}
+li{
+    margin: 10px 0px;
+}
+li>span{
+    margin: 0px 10px 0px 0px;
+}
+
+.random_selected{
+    color: var(--txtLi_select_1);
+    animation: kaboom 800ms;
+    /* The gradient technique doesn't work with the text-shadow one
+    maybe i need to set of texts on top of each other */
+    /* background-image: linear-gradient(180deg, var(--txtLi_select_1), var(--txtLi_select_2));
+    background-clip: text;
+    color: transparent; */
+}
+
+@keyframes kaboom{
+    0%{
+        color: var(--txtLi_select_2);
+    }
+    100%{
+        color: var(--txtLi_select_1);
+    }
+}
