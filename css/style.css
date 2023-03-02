@@ -9,12 +9,15 @@
     --txtLi : rgb(210,210,210);
     --txtLi_select_1 : rgb(250,215,21);
     --txtLi_select_2 : rgb(250,163,0);
+    --buttonDelete_1 : rgb(175,175,175);
+    --buttonDelete_2 : rgb(54,54,54);
+
     --black : rgb(0,0,0);
 }
 
 @font-face {
     font-family: vremena;
-    src: url("./fonts/VremenaGrotesk.otf");
+    src: url("../fonts/VremenaGrotesk.otf");
 }
 
 body{
@@ -52,6 +55,37 @@ li>span{
     /* background-image: linear-gradient(180deg, var(--txtLi_select_1), var(--txtLi_select_2));
     background-clip: text;
     color: transparent; */
+}
+
+.button_main{
+    all: unset;
+    background-image: linear-gradient(90deg, var(--bgcolor_1), var(--bgcolor_3), var(--bgcolor_1));
+    padding: 2px;
+    width: 100px;
+    text-align: center;
+    /* border-width: 2px; */
+    border-style: solid;
+    border-color: var(--bgLi_1) var(--bgLi_4) var(--bgLi_4) var(--bgLi_2);
+}
+.button_main:hover{
+    cursor: pointer;
+    border-color: var(--bgLi_1);
+}
+.button_main:focus{
+    cursor: pointer;
+    border-color: var(--bgLi_4);
+}
+
+.button_delete{
+    /* The X is not centered horizontaly and verticaly */
+    all:unset;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    border: 2px solid;
+    border-color: var(--buttonDelete_1);
+    border-radius: 50%;
+    background-color: var(--buttonDelete_2);
 }
 
 @keyframes kaboom{
