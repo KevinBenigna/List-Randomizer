@@ -69,7 +69,7 @@ window.addEventListener("load", ()=>{
         newDeleteButton.classList.add("button_delete");
         // newDeleteButton.addEventListener("click", deleteText(maxId));
         newDeleteButton.onclick = function (){ deleteText(maxId);} ;
-        //newDeleteButton.value = "delete"; // marche mais il aime pas donc j'aime pas
+        //newDeleteButton.value = "X"; // marche mais il aime pas donc j'aime pas
         document.getElementById("li_"+maxId).appendChild(newDeleteButton);
         document.getElementById("li_delete_"+maxId).value = "X";
     }
