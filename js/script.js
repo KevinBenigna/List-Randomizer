@@ -3,18 +3,25 @@ window.addEventListener("load", ()=>{
     // To do
     // [ ] Cursor div
     // [X] Each new li has an unique id (select max and add +1 ?)
-    // [ ] Select one at random function
+    // [X] Select one at random function
     // [ ] ? "Kill" (disable but don't delete) one at random
     // [X] Delete button next to the text added
     // [X] Delete function
     // [X] Add a "Title" for the draw/lottery that you can change
     // [ ] Slider avec limitation de characteres pour le champ ?
     // [ ] ou afficher le nombre de characteres dans le cercle noir avec numéro
+    // [ ] Empty gray li saying "add new" and when we click on it and you can fill then validate ? (mobile ?)
 
-    let myForm = document.getElementById("the_form");
-    myForm.addEventListener("submit", event => {
-        // Prevent the form from submiting/reloading the page
-        event.preventDefault();
+    let titleForm = document.getElementById("title_form");
+    titleForm.addEventListener("submit", event => {
+        event.preventDefault(); // Prevent the form from submiting/reloading the page
+        textInput.focus();
+    }, false);
+
+
+    let theForm = document.getElementById("the_form");
+    theForm.addEventListener("submit", event => {
+        event.preventDefault(); // Prevent the form from submiting/reloading the page
         addText();
     }, false);
 
