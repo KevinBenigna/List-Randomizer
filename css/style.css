@@ -1,5 +1,6 @@
 :root{
-    --bgcolor_1 : rgb(41,40,86);
+    --bgcolor_1 : rgba(41,40,86,1);
+    --bgcolor_1t : rgba(41,40,86,0.1);
     --bgcolor_2 : rgb(114,125,156);
     --bgcolor_3 : rgb(100,105,165);
     --bgLi_1 : rgb(234,232,240);
@@ -13,7 +14,6 @@
     --buttonDelete_2 : rgb(150,150,150);
     --buttonDelete_3 : rgb(54,54,54);
     --buttonDelete_4 : rgb(16,16,16);
-
     --black : rgb(0,0,0);
 }
 
@@ -40,6 +40,10 @@ main{
     border: 1px solid blue;
 }
 
+h1{
+    text-align: center;
+}
+
 ul{
     list-style-type: none;
     padding: 0;
@@ -59,9 +63,15 @@ li>span{
     margin: 0px 10px 0px 10px;
 }
 
+#banner_top{
+    padding: 2px 0px 2px 10px;
+    margin-bottom: 10px;
+    background-image: linear-gradient(90deg, var(--bgcolor_1), var(--bgcolor_1t));
+}
+
 .random_selected{
     color: var(--txtLi_select_1);
-    animation: kaboom 800ms;
+    animation: random_animation 800ms;
     /* The gradient technique doesn't work with the text-shadow one
     maybe i need to set of texts on top of each other */
     /* background-image: linear-gradient(180deg, var(--txtLi_select_1), var(--txtLi_select_2));
@@ -91,7 +101,9 @@ li>span{
 .button_delete{
     /* The X is not centered horizontaly and verticaly */
     all:unset;
-    width: 20px;
+    /* display: inline-block; */
+    min-width: 20px;
+    max-width: 20px;
     height: 20px;
     font-size: 20px;
     padding: 8px;
@@ -113,7 +125,7 @@ li>span{
     cursor: pointer;
 }
 
-@keyframes kaboom{
+@keyframes random_animation{
     0%{
         color: var(--txtLi_select_2);
     }
