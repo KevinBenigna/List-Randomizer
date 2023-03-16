@@ -1,15 +1,21 @@
 window.addEventListener("load", ()=>{
 
     // To do
-    // [ ] Cursor div
+    // [ ] Bg animation sur la ligne sélectionnée
+    // [ ] Random order (change the order of the li)
+    // [ ] Disable all button for 2 sec after any random is done
+    // -- [ ] css gray both
+    // -- [ ] js
     // [X] Each new li has an unique id (select max and add +1 ?)
     // [X] Select one at random function
     // [ ] ? "Kill" (disable but don't delete) one at random
     // [X] Delete button next to the text added
     // [X] Delete function
-    // [X] Add a "Title" for the draw/lottery that you can change
+    // [X] Add a "Title" for the draw/lliottery that you can change
     // [ ] Slider avec limitation de characteres pour le champ ?
-    // [ ] ou afficher le nombre de characteres dans le cercle noir avec numéro
+    // [ ] glisser déposer pour changer l'ordre des li
+    // -- [ ] css changer l'icone en main et main qui grab
+    // -- [ ] js insertBefore ?
     // [ ] Empty gray li saying "add new" and when we click on it and you can fill then validate ? (mobile ?)
 
     let titleForm = document.getElementById("title_form");
@@ -28,8 +34,11 @@ window.addEventListener("load", ()=>{
     let addTextButton = document.getElementById("add_text_input");
     addTextButton.addEventListener("click", addText);
 
-    let randomSelectionButton = document.getElementById("random_input");
-    randomSelectionButton.addEventListener("click", randomSelection);
+    let randomPickButton = document.getElementById("random_pick_input");
+    randomPickButton.addEventListener("click", randomPick);
+
+    let randomOrderButton = document.getElementById("random_order_input");
+    randomOrderButton.addEventListener("click", randomOrder);
 
     let titleInput = document.getElementById("title_input");
     titleInput.addEventListener("input", updateTitle);
@@ -87,7 +96,7 @@ window.addEventListener("load", ()=>{
         console.log("Removed "+maxId);
     }
 
-    function randomSelection(){
+    function randomPick(){
         // We don't do anything if there are no li/text
         if(textList.childElementCount!=0){
             // We remove the class from the elements that are there
@@ -103,6 +112,19 @@ window.addEventListener("load", ()=>{
             }, 1);
             
             console.log("selected child : "+randomTextSelected);
+        }
+    }
+    
+    function randomOrder(){
+        // Inspired from Fisher and Yate random method
+        console.log(textList.childElementCount);
+        totalElements = textList.childElementCount;
+        // if 4 element we random from 0 to 3 and then insert the li before the first li
+        // Then the 2nd element we random between 0 to 2 and insert before the second li, etc
+        for(i = totalElements; i > 0; i--){
+            let randomTextSelected = (Math.floor(Math.random()*i))+(totalElements-i);
+            console.log("random number : "+randomTextSelected);
+            textList.insertBefore(textList.children[randomTextSelected], textList.children[(totalElements-i)]);
         }
     }
 
