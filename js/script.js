@@ -1,8 +1,8 @@
 window.addEventListener("load", ()=>{
 
-    // To do
+    // Ideas (might not use some)
     // [ ] Bg animation sur la ligne sélectionnée
-    // [ ] Random order (change the order of the li)
+    // [X] Random order (change the order of the li)
     // [ ] Disable all button for 2 sec after any random is done
     // -- [ ] css gray both
     // -- [ ] js
