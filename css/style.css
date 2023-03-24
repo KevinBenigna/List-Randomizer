@@ -3,7 +3,9 @@
     --bgcolor_1t : rgba(41,40,86,0.1);
     --bgcolor_2 : rgb(114,125,156);
     --bgcolor_3 : rgb(100,105,165);
-    --bgLi_1 : rgb(234,232,240);
+    --bgLi_1 : rgba(234,232,240,1);
+    --bgLi_1t1 : rgba(234, 232, 240, 0.8);
+    --bgLi_1t2 : rgba(234, 232, 240, 0.1);
     --bgLi_2 : rgb(158,150,183);
     --bgLi_3 : rgb(93,79,132);
     --bgLi_4 : rgb(63,48,110);
@@ -59,14 +61,7 @@ li{
     align-items: center;
     border-radius: 0 18px 18px 0;
 }
-@-moz-document url-prefix() {
-    /* For Firefox i have to use weird values for the bg, result is close to the other browsers */
-    li{
-        background-image: linear-gradient(45deg, 
-    var(--bgLi_4) 0%, var(--bgLi_4) 70%, var(--bgLi_3) 70%, var(--bgLi_3) 72%,
-    var(--bgLi_2) 72%, var(--bgLi_2) 73.5%, var(--bgLi_1) 73.5%, var(--bgLi_1) 100%);
-    }
-}
+
 li>span{
     margin: 0px 10px 0px 10px;
 }
@@ -81,14 +76,16 @@ li>span{
 #title_form{
     margin-left: 100px;
 }
+#the_form{
+    margin-left: 10px;
+}
 .random_selected{
     color: var(--txtLi_select_1);
     animation: random_animation 800ms;
-    /* The gradient technique doesn't work with the text-shadow one
-    maybe i need to set of texts on top of each other */
-    /* background-image: linear-gradient(180deg, var(--txtLi_select_1), var(--txtLi_select_2));
-    background-clip: text;
-    color: transparent; */
+    background-image: linear-gradient(180deg, var(--bgLi_1t1) 0%, var(--bgLi_1t2) 18%, var(--bgLi_1t2) 82%, var(--bgLi_1t1) 100%),
+    linear-gradient(45deg, 
+    var(--bgLi_4) 0%, var(--bgLi_4) 70%, var(--bgLi_3) 70%, var(--bgLi_3) 71.75%,
+    var(--bgLi_2) 71.75%, var(--bgLi_2) 73.5%, var(--bgLi_1) 73.5%, var(--bgLi_1) 100%);
 }
 
 .button_main{

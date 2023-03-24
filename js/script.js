@@ -1,7 +1,7 @@
 window.addEventListener("load", ()=>{
 
     // Ideas (might not use some)
-    // [ ] Bg animation sur la ligne sélectionnée
+    // [X] Bg change on selected line
     // [X] Random order (change the order of the li)
     // [ ] Disable all button for 2 sec after any random is done
     // -- [ ] css gray both
@@ -36,6 +36,9 @@ window.addEventListener("load", ()=>{
 
     let randomPickButton = document.getElementById("random_pick_input");
     randomPickButton.addEventListener("click", randomPick);
+
+    let unselectButton = document.getElementById("unselect_input");
+    unselectButton.addEventListener("click", unselectAll);
 
     let randomOrderButton = document.getElementById("random_order_input");
     randomOrderButton.addEventListener("click", randomOrder);
@@ -99,11 +102,7 @@ window.addEventListener("load", ()=>{
     function randomPick(){
         // We don't do anything if there are no li/text
         if(textList.childElementCount!=0){
-            // We remove the class from the elements that are there
-            for(i=0; i < textList.childElementCount; i++){
-                textList.children[i].classList.remove("random_selected");
-            }
-            
+            unselectAll();
             // We choose a number from 0 to the number of li-1 and add a class to the child
             let randomTextSelected = (Math.floor(Math.random()*textList.childElementCount));
             // Delay so it refresh the animation properly if it's the same <li>
@@ -114,16 +113,23 @@ window.addEventListener("load", ()=>{
             console.log("selected child : "+randomTextSelected);
         }
     }
+
+    function unselectAll(){
+        // We remove the "selected" class from all the li elements
+        for(i=0; i < textList.childElementCount; i++){
+            textList.children[i].classList.remove("random_selected");
+        }
+    }
     
     function randomOrder(){
         // Inspired from Fisher and Yate random method
-        console.log(textList.childElementCount);
+        // console.log(textList.childElementCount);
         totalElements = textList.childElementCount;
         // if 4 element we random from 0 to 3 and then insert the li before the first li
         // Then the 2nd element we random between 0 to 2 and insert before the second li, etc
         for(i = totalElements; i > 0; i--){
             let randomTextSelected = (Math.floor(Math.random()*i))+(totalElements-i);
-            console.log("random number : "+randomTextSelected);
+            // console.log("random number : "+randomTextSelected);
             textList.insertBefore(textList.children[randomTextSelected], textList.children[(totalElements-i)]);
         }
     }
