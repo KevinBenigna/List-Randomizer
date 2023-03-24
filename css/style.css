@@ -14,6 +14,7 @@
     --buttonDelete_2 : rgb(150,150,150);
     --buttonDelete_3 : rgb(54,54,54);
     --buttonDelete_4 : rgb(16,16,16);
+    --red : rgb(199, 62, 57);
     --black : rgb(0,0,0);
 }
 
@@ -37,7 +38,7 @@ body{
 main{
     margin: auto;
     max-width: 1200px;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
 
 h1{
@@ -50,14 +51,21 @@ ul{
 }
 li{
     margin: 10px 20px;
-    /* weird values but it works */
     background-image: linear-gradient(45deg, 
-    var(--bgLi_4) 0%, var(--bgLi_4) 70%, var(--bgLi_3) 70%, var(--bgLi_3) 73%,
-    var(--bgLi_2) 73%, var(--bgLi_2) 75%, var(--bgLi_1) 75%, var(--bgLi_1) 100%);
+    var(--bgLi_4) 0%, var(--bgLi_4) 70%, var(--bgLi_3) 70%, var(--bgLi_3) 71.75%,
+    var(--bgLi_2) 71.75%, var(--bgLi_2) 73.5%, var(--bgLi_1) 73.5%, var(--bgLi_1) 100%);
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 0 18px 18px 0;
+}
+@-moz-document url-prefix() {
+    /* For Firefox i have to use weird values for the bg, result is close to the other browsers */
+    li{
+        background-image: linear-gradient(45deg, 
+    var(--bgLi_4) 0%, var(--bgLi_4) 70%, var(--bgLi_3) 70%, var(--bgLi_3) 72%,
+    var(--bgLi_2) 72%, var(--bgLi_2) 73.5%, var(--bgLi_1) 73.5%, var(--bgLi_1) 100%);
+    }
 }
 li>span{
     margin: 0px 10px 0px 10px;
@@ -123,10 +131,15 @@ li>span{
 
 .button_delete:hover{
     cursor: pointer;
-
+    color: var(--red);
+    border-color: var(--red);
 }
-.button_delete:focus{
+.button_delete:active{
     cursor: pointer;
+    color: var(--red);
+    border-color: var(--red);
+    background-image: linear-gradient(120deg, var(--red), var(--black));
+    background-color: var(--red);
 }
 
 @keyframes random_animation{

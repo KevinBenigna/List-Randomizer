@@ -11,7 +11,7 @@ window.addEventListener("load", ()=>{
     // [ ] ? "Kill" (disable but don't delete) one at random
     // [X] Delete button next to the text added
     // [X] Delete function
-    // [X] Add a "Title" for the draw/lliottery that you can change
+    // [X] Add a "Title" for the list that you can change
     // [ ] Slider avec limitation de characteres pour le champ ?
     // [ ] glisser déposer pour changer l'ordre des li
     // -- [ ] css changer l'icone en main et main qui grab
