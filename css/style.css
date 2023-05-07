@@ -147,3 +147,17 @@ li>span{
         color: var(--txtLi_select_1);
     }
 }
+
+
+@media screen and (max-width: 500px){
+    #banner_top{
+        display: flex;
+        flex-direction: column;
+    }
+    #title_form{
+        margin-left: 0px;
+    }
+    #title_input{
+        width: 250px;
+    }
+}
